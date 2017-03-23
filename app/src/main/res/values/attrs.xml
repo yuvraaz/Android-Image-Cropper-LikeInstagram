@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Crop overlay view -->
+    <declare-styleable name="CropOverlayView">
+        <attr name="guideLines" format="boolean" />
+        <attr name="drawCircle" format="boolean" />
+        <attr name="marginTop" format="dimension" />
+        <attr name="marginSide" format="dimension" />
+        <attr name="minWidth" format="dimension" />
+        <attr name="maxWidth" format="dimension" />
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="borderColor" format="color" />
+        <attr name="overlayColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="TextViewMontserratLightText">
+        <attr name="lightTextColor" format="color" />
+    </declare-styleable>
+    <integer name="config_mediumAnimTime">330</integer>
+
+    <declare-styleable name="ExpandableTextView">
+        <attr name="trimLength" format="integer"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="TextViewRobotoLight">
+        <attr name="text_color" format="color"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="TextViewBold">
+        <attr name="text_color_bold" format="color"/>
+    </declare-styleable>
+
+</resources>

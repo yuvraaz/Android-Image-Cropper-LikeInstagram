@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="all">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:weightSum="100">
+
+        <ImageView
+            android:id="@+id/cancel"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="12dp"
+            android:layout_weight="15"
+            android:src="@mipmap/cancelupload" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="70"
+            android:gravity="center"
+            android:text="Select Photo"
+            android:textColor="@color/dark_text"
+            android:textSize="@dimen/xxxlarge" />
+
+        <ImageView
+            android:id="@+id/doneCrop"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="12dp"
+            android:layout_weight="15"
+            android:src="@mipmap/uploadimage" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/relativeImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <boommba.com.apps.prototypes.customphoto.customcropper.CropperView
+                android:id="@+id/photoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="center"
+                android:visibility="visible" />
+
+            <boommba.com.apps.prototypes.customphoto.cropoverlay.CropOverlayView
+                android:id="@+id/cropOverlayView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:borderColor="#00000000"
+                app:cornerRadius="1dp"
+                app:drawCircle="true"
+                app:guideLines="false"
+                app:lightTextColor="#552a2928"
+                app:marginSide="0dp"
+                app:marginTop="0dp" />
+
+
+            <RelativeLayout
+                android:id="@+id/test"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/overlay_circle"
+                android:visibility="gone" />
+            <!--android:background="@drawable/overlay_rectrangle"-->
+            <!--you can use rectrangle overlay as well-->
+
+            <ImageView
+                android:id="@+id/imgImage"
+                android:layout_width="match_parent"
+                android:src="@mipmap/ic_launcher"
+                android:layout_height="match_parent"
+                 android:padding="0dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/test1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <Button
+                android:id="@+id/btnTakePicture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:text="Take A Picture"
+                android:textAllCaps="false"
+                android:textColor="@color/dark_text"
+                android:textSize="17dp" />
+
+            <Button
+                android:id="@+id/btnChooseGallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:text="Choose from Gallery"
+                android:textAllCaps="false"
+                android:textColor="@color/dark_text"
+                android:textSize="19dp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
