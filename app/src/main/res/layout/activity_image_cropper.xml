@@ -73,15 +73,15 @@
                 app:marginSide="0dp"
                 app:marginTop="0dp" />
 
-
+            <!--android:background="@drawable/overlay_rectrangle"-->
+            <!--you can use rectrangle overlay as well-->
             <RelativeLayout
                 android:id="@+id/test"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/overlay_circle"
                 android:visibility="gone" />
-            <!--android:background="@drawable/overlay_rectrangle"-->
-            <!--you can use rectrangle overlay as well-->
+
 
             <ImageView
                 android:id="@+id/imgImage"
