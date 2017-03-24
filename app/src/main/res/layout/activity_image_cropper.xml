@@ -53,7 +53,7 @@
             android:background="@color/white">
 
             <boommba.com.apps.prototypes.customphoto.customcropper.CropperView
-                android:id="@+id/photoView"
+                android:id="@+id/cropperView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"

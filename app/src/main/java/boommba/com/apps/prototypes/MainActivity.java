@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Vi
     private RelativeLayout relativeImage;
     private Button btnTakePicture, btnChooseGallery;
     private ImageView cropDone, cancelUpload;
-    private CropperView photoView;
+    private CropperView cropperView;
     private CropOverlayView cropOverlayView;
     private File mFileTemp;
     private String currentDateandTime = "";
@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Vi
         currentDateandTime = sdf.format(new Date());
         makeLayoutSquare();
         initClickListner();
-        photoView.addListener(new CropperViewAttacher.IGetImageBounds() {
+        cropperView.addListener(new CropperViewAttacher.IGetImageBounds() {
             @Override
             public Rect getImageBounds() {
                 return new Rect((int) Edge.LEFT.getCoordinate(), (int) Edge.TOP.getCoordinate(), (int) Edge.RIGHT.getCoordinate(), (int) Edge.BOTTOM.getCoordinate());
@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Vi
         btnTakePicture = (Button) findViewById(R.id.btnTakePicture);
         btnChooseGallery = (Button) findViewById(R.id.btnChooseGallery);
         relativeImage = (RelativeLayout) findViewById(R.id.relativeImage);
-        photoView = (CropperView) findViewById(R.id.photoView);
+        cropperView = (CropperView) findViewById(R.id.cropperView);
         cropOverlayView = (CropOverlayView) findViewById(R.id.cropOverlayView);
         imgImage = (ImageView) findViewById(R.id.imgImage);
         cropDone = (ImageView) findViewById(R.id.doneCrop);
@@ -276,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Vi
     @Override
     public void hideCropping() {
         imgImage.setVisibility(View.VISIBLE);
-        photoView.setVisibility(View.GONE);
+        cropperView.setVisibility(View.GONE);
         cropOverlayView.setVisibility(View.GONE);
         findViewById(R.id.test).setVisibility(View.GONE);
     }
@@ -284,7 +284,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Vi
     @Override
     public void showCropping() {
         imgImage.setVisibility(View.GONE);
-        photoView.setVisibility(View.VISIBLE);
+        cropperView.setVisibility(View.VISIBLE);
         cropOverlayView.setVisibility(View.GONE);
         findViewById(R.id.test).setVisibility(View.VISIBLE);
     }
@@ -320,7 +320,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Vi
     private void init() {
         showCropping();
         Bitmap b = getBitmap(mImageUri);
-        photoView.setImageBitmap(b);
+        cropperView.setImageBitmap(b);
     }*/
 
     @Override
@@ -374,11 +374,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Vi
             minScale = (cropWindowWidth + 1f) / w;
         }
 
-        photoView.setMaximumScale(minScale * 9);
-        photoView.setMediumScale(minScale * 6);
-        photoView.setMinimumScale(minScale);
-        photoView.setImageDrawable(bitmap);
-        photoView.setScale(minScale);
+        cropperView.setMaximumScale(minScale * 9);
+        cropperView.setMediumScale(minScale * 6);
+        cropperView.setMinimumScale(minScale);
+        cropperView.setImageDrawable(bitmap);
+        cropperView.setScale(minScale);
 
 
     }
@@ -486,15 +486,15 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Vi
     }
 
     private Bitmap getCurrentDisplayedImage() {
-        Bitmap result = Bitmap.createBitmap(photoView.getWidth(), photoView.getHeight(), Bitmap.Config.RGB_565);
+        Bitmap result = Bitmap.createBitmap(cropperView.getWidth(), cropperView.getHeight(), Bitmap.Config.RGB_565);
         Canvas c = new Canvas(result);
-        photoView.draw(c);
+        cropperView.draw(c);
         return result;
     }
 
     public Bitmap getCroppedImage() {
         Bitmap mCurrentDisplayedBitmap = getCurrentDisplayedImage();
-        Rect displayedImageRect = ImageViewUtil.getBitmapRectCenterInside(mCurrentDisplayedBitmap, photoView);
+        Rect displayedImageRect = ImageViewUtil.getBitmapRectCenterInside(mCurrentDisplayedBitmap, cropperView);
 
         // Get the scale factor between the actual Bitmap dimensions and the
         // displayed dimensions for width.
